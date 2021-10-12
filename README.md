@@ -1,16 +1,17 @@
-# audio
+# DUAA FROM QURAAN FLUTTER
 
-A new Flutter application.
+Building an audio player in Flutter.
+
+
+### Screenshots
+
+
+<img src="https://raw.githubusercontent.com/Hakim-Allaoui/duaa_from_quraan_flutter/master/screenshots/duaa_from_quraan_flutter_screen%20(1).jpg" height="300em" /> <img src="https://raw.githubusercontent.com/Hakim-Allaoui/duaa_from_quraan_flutter/master/screenshots/duaa_from_quraan_flutter_screen%20(2).jpg" height="300em" /> <img src="https://raw.githubusercontent.com/Hakim-Allaoui/duaa_from_quraan_flutter/master/screenshots/duaa_from_quraan_flutter_screen%20(3).jpg" height="300em" />
+
+<img src="https://raw.githubusercontent.com/Hakim-Allaoui/duaa_from_quraan_flutter/master/screenshots/duaa_from_quraan_flutter_screen%20(4).jpg" height="300em" /> <img src="https://raw.githubusercontent.com/Hakim-Allaoui/duaa_from_quraan_flutter/master/screenshots/duaa_from_quraan_flutter_screen%20(1).png" height="80em" />
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For help getting started with Flutter, view our online
+[documentation](https://flutter.io/).
