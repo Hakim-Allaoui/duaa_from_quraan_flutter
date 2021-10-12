@@ -12,7 +12,7 @@ Building an audio player in Flutter.
 
 ------------
 
-*:tw-26a0:To avoid errors depends on flutter version, use same version of flutter when project created*
+*To avoid errors depends on flutter version, use same version of flutter when project created*
 - Android Studio/VS Code
 -  [![](https://img.shields.io/badge/Flutter-1.22.5-blue)](https://img.shields.io/badge/Flutter-1.22.5-blue)
 - [![](https://img.shields.io/badge/Dart-2.10.4-green)](https://img.shields.io/badge/Dart-2.10.4-green)
