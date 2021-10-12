@@ -4,9 +4,8 @@ import 'package:audio/utils/tools.dart';
 class AudioHelper {
   static List<Audio> audios = <Audio>[];
 
-
-/*  static List<Audio> audios = <Audio>[*//*
-    *//**//*Audio.network(
+/*  static List<Audio> audios = <Audio>[*/ /*
+    */ /**/ /*Audio.network(
         "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Music_for_Video/springtide/Sounds_strange_weird_but_unmistakably_romantic_Vol1/springtide_-_03_-_We_Are_Heading_to_the_East.mp3",
         metas: Metas(
           title: "Online",
@@ -14,12 +13,12 @@ class AudioHelper {
           album: "OnlineAlbum",
           image: MetasImage.network("https://image.shutterstock.com/image-vector/pop-music-text-art-colorful-600w-515538502.jpg"),
         ),
-      ),*//**//*
+      ),*/ /**/ /*
     Audio(
       "assets/audios/al-aaraf-23.mp3",
       metas: Metas(
         title: "ربنا ظلمنا أنفسنا",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -28,7 +27,7 @@ class AudioHelper {
       "assets/audios/ibrahem-41.mp3",
       metas: Metas(
         title: "ربنا اغفر لي و لوالدي",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -37,7 +36,7 @@ class AudioHelper {
       "assets/audios/ibrahem-40.mp3",
       metas: Metas(
         title: "ربي اجعلني مقيم الصلاة",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -46,7 +45,7 @@ class AudioHelper {
       "assets/audios/al-shuara-83-87.mp3",
       metas: Metas(
         title: "ربي هب لي حكما و ألحقني بالصالحين",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -55,13 +54,12 @@ class AudioHelper {
       "assets/audios/al-saffat-100.mp3",
       metas: Metas(
         title: "ربي هب لي من الصالحين",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
     ),
-  *//*];*/
-
+  */ /*];*/
 
   static List<String> titles = [
     """
@@ -152,14 +150,15 @@ class AudioHelper {
     """بسم الله الرحمن الرحيم {رَبِّ أَنْزِلْنِي مُنْزَلًا مُبَارَكًا وَأَنْتَ خَيْرُ الْمُنْزِلِينَ} , [المؤمنون:٢٩] , صوت القارئ: ماهر المعيقلي."""
   ];
 
-
   static fillAudio() {
-    for(int i = 0; i < AudioHelper.titles.length ;i++){
+    for (int i = 0; i < AudioHelper.titles.length; i++) {
       Audio tempAudio = new Audio(
-        "assets/audios/douaa_${i+1}.mp3",
+        "assets/audios/douaa_${i + 1}.mp3",
         metas: Metas(
-          title: /*"${i+1} " +*/ AudioHelper.titles[i].split('{')[1].split('}')[0],
-          artist: "Developed by Amegodev",
+          title: /*"${i+1} " +*/ AudioHelper.titles[i]
+              .split('{')[1]
+              .split('}')[0],
+          artist: "Developed by Hakim Allaoui",
           album: Tools.packageInfo.appName,
           image: MetasImage.asset('assets/icon.png'),
         ),
@@ -167,5 +166,4 @@ class AudioHelper {
       AudioHelper.audios.add(tempAudio);
     }
   }
-
 }

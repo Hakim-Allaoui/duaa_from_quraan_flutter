@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
       "assets/audios/ibrahem-41.mp3",
       metas: Metas(
         title: "ربنا اغفر لي و لوالدي",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       "assets/audios/ibrahem-40.mp3",
       metas: Metas(
         title: "ربي اجعلني مقيم الصلاة",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
       "assets/audios/al-shuara-83-87.mp3",
       metas: Metas(
         title: "ربي هب لي حكما و ألحقني بالصالحين",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
       "assets/audios/al-saffat-100.mp3",
       metas: Metas(
         title: "ربي هب لي من الصالحين",
-        artist: "Developer : Amegodev",
+        artist: "Developer : Hakim Allaoui",
         album: Tools.packageInfo.appName,
         image: MetasImage.asset('assets/icon.png'),
       ),
