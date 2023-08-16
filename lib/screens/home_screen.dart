@@ -112,8 +112,8 @@ class _HomeState extends State<Home> {
               text:
                   '${AudioHelper.titles[_assetsAudioPlayer.playlist.startIndex].split(']')[0]}]'),
         );
-        _drawerKey.currentState
-            .showSnackBar(new SnackBar(content: Text('تم النسخ')));
+        // _drawerKey.currentState
+        //     .showSnackBar(new SnackBar(content: Text('تم النسخ')));
 
         break;
       case 'مشاركة':
@@ -154,124 +154,13 @@ class _HomeState extends State<Home> {
     return source.firstWhere((element) => element.path == fromPath);
   }
 
-  void showDialog() {
-    showGeneralDialog(
-      barrierLabel: Strings.about,
-      barrierDismissible: true,
-      barrierColor: Colors.black.withOpacity(0.5),
-      transitionDuration: Duration(milliseconds: 700),
-      context: context,
-      pageBuilder: (_, __, ___) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Material(
-              type: MaterialType.transparency,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(Strings.about,
-                        style: Theme.of(context).textTheme.headline6.apply(
-                            fontSizeFactor: 2,
-                            color: MyColors.darklight["light"])),
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(
-                            'assets/icon.png',
-                            height: 50.0,
-                          ),
-                        ),
-                        Text(
-                            Tools.packageInfo.appName +
-                                ' ' +
-                                Tools.packageInfo.version,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6
-                                .apply(color: MyColors.darklight["light"])),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Text(
-                        Strings.aboutText,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(5.0)),
-                              color: MyColors.vintageReport[0].withOpacity(0.3),
-                            ),
-                            child: FlatButton(
-                                padding: EdgeInsets.all(18.0),
-                                child: new Text(
-                                  'رجوع',
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                }),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(5.0)),
-                              color: MyColors.vintageReport[0].withOpacity(0.3),
-                            ),
-                            child: FlatButton(
-                                padding: EdgeInsets.all(18.0),
-                                child: new Text(
-                                  Strings.rate,
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                                onPressed: () {
-//                                  Navigator.pop(context);
-                                  Tools.launchURLRate();
-                                }),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                margin: EdgeInsets.only(bottom: 50, left: 12, right: 12),
-                decoration: BoxDecoration(
-                  color: MyColors.vintageReport[1],
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-      transitionBuilder: (_, anim, __, child) {
-        return SlideTransition(
-          position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
-          child: child,
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark));
-    SystemChrome.setEnabledSystemUIOverlays([
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
       /*SystemUiOverlay.top, SystemUiOverlay.bottom*/
     ]);
 
@@ -287,107 +176,66 @@ class _HomeState extends State<Home> {
             endDrawer: buildDrawer(),
             backgroundColor: Colors.transparent,
             body: Column(
-              children: <Widget>[
+              children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 40.0),
                   child: Row(
-                    children: <Widget>[
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.vintageReport[0].withOpacity(0.8),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(100.0),
-                              bottomLeft: Radius.circular(100.0),
-                            ),
-                          ),
-                          child: Center(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                Tools.packageInfo.appName,
-                                style: Theme.of(context).textTheme.headline6,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Image.asset(
-                        'assets/icon.png',
-                        height: 100.0,
-                      ),
-                      Expanded(
-                        child: Directionality(
-                          textDirection: TextDirection.ltr,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(100.0),
-                              bottomRight: Radius.circular(100.0),
-                            ),
-                            child: ButtonTheme(
-                              minWidth: 10.0,
-                              padding: EdgeInsets.all(0.0),
-                              child: FlatButton(
-                                onPressed: () {
-                                  ads.showInter(probablity: 20);
-                                  _drawerKey.currentState.openEndDrawer();
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(
-                                    color: MyColors.vintageReport[0]
-                                        .withOpacity(0.8),
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(100.0),
-                                      bottomRight: Radius.circular(100.0),
-                                    ),
+                        child: Stack(
+                          alignment: Alignment.centerRight,
+                          children: [
+                            Positioned(
+                              right: 80.0,
+                              child: Container(
+                                padding: EdgeInsets.only(right: 20.0, top: 8.0, bottom: 8.0),
+                                decoration: BoxDecoration(
+                                  color: MyColors.vintageReport[0].withOpacity(0.8),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(100.0),
+                                    bottomLeft: Radius.circular(100.0),
                                   ),
-                                  child: Row(
-                                    children: <Widget>[
-                                      /*Text(
-                                        'تطبيقات أخرى',
-                                        style: Theme.of(context).textTheme.headline6,
-                                      ),*/
-                                      Expanded(
-                                        child: Text(
-                                          'القائمة',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6,
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      ButtonTheme(
-                                        minWidth: 10.0,
-                                        child: FlatButton(
-                                          onPressed: () {
-                                            _drawerKey.currentState
-                                                .openEndDrawer();
-                                          },
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(100.0)),
-                                          child: SvgPicture.asset(
-                                            'assets/icons/menu.svg',
-                                            height: 30.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                ),
+                                child: Center(
+                                  child: Padding(
+                                    padding:
+                                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+                                    child: Text(
+                                      Tools.packageInfo.appName,
+                                      style: Theme.of(context).textTheme.titleLarge?.apply(fontSizeFactor: 0.8),
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
+                            Image.asset(
+                              'assets/icon.png',
+                              height: 100.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          ads.showInter(probablity: 20);
+                          _drawerKey.currentState.openEndDrawer();
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(20.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: MyColors.vintageReport[0]
+                                .withOpacity(0.8),
                           ),
+                          child: SvgPicture.asset("assets/icons/menu.svg", height: 30.0,),
                         ),
                       ),
                     ],
                   ),
                 ),
-                ads.getFbBanner(AdsHelper.fbBannerId_1, BannerSize.STANDARD),
+                // ads.getFbBanner(AdsHelper.fbBannerId_1, BannerSize.STANDARD),
                 Expanded(
                   child: PlayerBuilder.current(
                       player: _assetsAudioPlayer,
@@ -427,7 +275,7 @@ class _HomeState extends State<Home> {
                     }*/
                     return Column(
                       children: <Widget>[
-                        PlayerBuilder.isLooping(
+                        PlayerBuilder.loopMode(
                           player: _assetsAudioPlayer,
                           builder: (context, isLooping) {
                             return PlayerBuilder.isPlaying(
@@ -438,7 +286,7 @@ class _HomeState extends State<Home> {
                                   child: PlayingControls(
                                     btnKey: btnKey,
                                     onMenuClick: showPopupMenu,
-                                    isLooping: isLooping,
+                                    isLooping: isLooping == LoopMode.playlist,
                                     isPlaying: isPlaying,
                                     isPlaylist: true,
                                     toggleLoop: () {
@@ -497,6 +345,118 @@ class _HomeState extends State<Home> {
     );
   }
 
+  void showDialog() {
+    showGeneralDialog(
+      barrierLabel: Strings.about,
+      barrierDismissible: true,
+      barrierColor: Colors.black.withOpacity(0.5),
+      transitionDuration: Duration(milliseconds: 700),
+      context: context,
+      pageBuilder: (_, __, ___) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Material(
+              type: MaterialType.transparency,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(Strings.about,
+                        style: Theme.of(context).textTheme.titleLarge.apply(
+                            fontSizeFactor: 2,
+                            color: MyColors.darklight["light"])),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/icon.png',
+                            height: 50.0,
+                          ),
+                        ),
+                        Text(
+                            Tools.packageInfo.appName +
+                                ' ' +
+                                Tools.packageInfo.version,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                .apply(color: MyColors.darklight["light"])),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Text(
+                        Strings.aboutText,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(5.0)),
+                              color: MyColors.vintageReport[0].withOpacity(0.3),
+                            ),
+                            child: TextButton(
+                              // padding: EdgeInsets.all(18.0),
+                                child: new Text(
+                                  'رجوع',
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                }),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(5.0)),
+                              color: MyColors.vintageReport[0].withOpacity(0.3),
+                            ),
+                            child: TextButton(
+                              // padding: EdgeInsets.all(18.0),
+                                child: new Text(
+                                  Strings.rate,
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                onPressed: () {
+//                                  Navigator.pop(context);
+                                  Tools.launchURLRate();
+                                }),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                margin: EdgeInsets.only(bottom: 50, left: 12, right: 12),
+                decoration: BoxDecoration(
+                  color: MyColors.vintageReport[1],
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+      transitionBuilder: (_, anim, __, child) {
+        return SlideTransition(
+          position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
+          child: child,
+        );
+      },
+    );
+  }
+
   Drawer buildDrawer() {
     return Drawer(
       child: Stack(
@@ -526,12 +486,12 @@ class _HomeState extends State<Home> {
                         Tools.packageInfo == null
                             ? SizedBox()
                             : Padding(
-                                padding: const EdgeInsets.only(bottom: 20.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Text(
                                   Tools.packageInfo.appName,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"],
                                           fontSizeFactor: 1.5),
@@ -547,13 +507,13 @@ class _HomeState extends State<Home> {
                         Padding(
                           padding: const EdgeInsets.only(
                               top: 8.0, left: 8.0, bottom: 8.0, right: 8.0),
-                          child: FlatButton(
-                            padding: EdgeInsets.all(10.0),
-                            color:
-                                Theme.of(context).accentColor.withOpacity(0.1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(100.0),
-                            ),
+                          child: TextButton(
+                            // padding: EdgeInsets.all(10.0),
+                            // color:
+                            //     Theme.of(context).accentColor.withOpacity(0.1),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: new BorderRadius.circular(100.0),
+                            // ),
                             onPressed: () {
                               Navigator.pop(context);
                               ads.showInter(probablity: 10);
@@ -574,7 +534,7 @@ class _HomeState extends State<Home> {
                                   Strings.home,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"]),
                                 ),
@@ -585,13 +545,13 @@ class _HomeState extends State<Home> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 8.0, bottom: 8.0, right: 8.0),
-                          child: FlatButton(
-                            padding: EdgeInsets.all(10.0),
-                            color:
-                                Theme.of(context).accentColor.withOpacity(0.1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(100.0),
-                            ),
+                          child: TextButton(
+                            // padding: EdgeInsets.all(10.0),
+                            // color:
+                            //     Theme.of(context).accentColor.withOpacity(0.1),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: new BorderRadius.circular(100.0),
+                            // ),
                             onPressed: () {
                               Tools.launchURLRate();
                             },
@@ -611,7 +571,7 @@ class _HomeState extends State<Home> {
                                   Strings.rate,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"]),
                                 ),
@@ -622,13 +582,13 @@ class _HomeState extends State<Home> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 8.0, bottom: 8.0, right: 8.0),
-                          child: FlatButton(
-                            padding: EdgeInsets.all(10.0),
-                            color:
-                                Theme.of(context).accentColor.withOpacity(0.1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(100.0),
-                            ),
+                          child: TextButton(
+                            // padding: EdgeInsets.all(10.0),
+                            // color:
+                            //     Theme.of(context).accentColor.withOpacity(0.1),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: new BorderRadius.circular(100.0),
+                            // ),
                             onPressed: () {
                               Tools.launchURLMore();
                             },
@@ -648,7 +608,7 @@ class _HomeState extends State<Home> {
                                   Strings.more,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"]),
                                 ),
@@ -659,13 +619,13 @@ class _HomeState extends State<Home> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 8.0, bottom: 8.0, right: 8.0),
-                          child: FlatButton(
-                            padding: EdgeInsets.all(10.0),
-                            color:
-                                Theme.of(context).accentColor.withOpacity(0.1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(100.0),
-                            ),
+                          child: TextButton(
+                            // padding: EdgeInsets.all(10.0),
+                            // color:
+                            //     Theme.of(context).accentColor.withOpacity(0.1),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: new BorderRadius.circular(100.0),
+                            // ),
                             onPressed: () {
                               Navigator.pop(context);
                               ads.showInter(probablity: 30);
@@ -687,7 +647,7 @@ class _HomeState extends State<Home> {
                                   Strings.privacy,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"]),
                                 ),
@@ -698,13 +658,13 @@ class _HomeState extends State<Home> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 8.0, bottom: 8.0, right: 8.0),
-                          child: FlatButton(
-                            padding: EdgeInsets.all(10.0),
-                            color:
-                                Theme.of(context).accentColor.withOpacity(0.1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(100.0),
-                            ),
+                          child: TextButton(
+                            // padding: EdgeInsets.all(10.0),
+                            // color:
+                            //     Theme.of(context).accentColor.withOpacity(0.1),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: new BorderRadius.circular(100.0),
+                            // ),
                             onPressed: () {
                               Navigator.pop(context);
                               ads.showInter(probablity: 30);
@@ -726,7 +686,7 @@ class _HomeState extends State<Home> {
                                   Strings.about,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline6
+                                      .titleLarge
                                       .apply(
                                           color: MyColors.darklight["light"]),
                                 ),

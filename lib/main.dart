@@ -32,21 +32,21 @@ class MyApp extends StatelessWidget {
       locale: Locale("ar"),
       title: 'أدعية القرآن الكريم',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         primaryColor: MyColors.vintageReport[0],
-        accentColor: MyColors.vintageReport[1],
         fontFamily: 'Cairo',
         textTheme: TextTheme(
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
               fontSize: 16,
               color: MyColors.vintageReport[2],
               fontWeight: FontWeight.w600),
-          headline6: TextStyle(
+          titleLarge: TextStyle(
             fontSize: 18,
             color: MyColors.vintageReport[2],
             fontWeight: FontWeight.w900,
           ),
         ),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: MyColors.vintageReport[1]),
       ),
       home: Directionality(
         textDirection: TextDirection.rtl,

@@ -141,7 +141,7 @@ B. كيف نستخدم المعلومات غير الشخصية الخاصة ب�
                               style: Theme
                                   .of(context)
                                   .textTheme
-                                  .headline6
+                                  .titleLarge
                                   .apply(
                                   fontSizeFactor: 2,
                                   color: MyColors.vintageReport[1]),
@@ -165,7 +165,7 @@ B. كيف نستخدم المعلومات غير الشخصية الخاصة ب�
                           strong: Theme
                               .of(context)
                               .textTheme
-                              .headline6
+                              .titleLarge
                               .apply(color: MyColors.darklight["dark"]),
                         ),
                         styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,

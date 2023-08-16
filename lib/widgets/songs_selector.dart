@@ -54,15 +54,11 @@ class SongsSelector extends StatelessWidget {
                     ? Color(0XFFEADBCE)
                     : Color(0XFFEADB85),
                 borderRadius: BorderRadius.circular(10.0)),
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 _scrollToBottom(index * 88.0);
                 this.onSelected(this.audios, index);
               },
-              padding: EdgeInsets.all(10.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0),
-              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[

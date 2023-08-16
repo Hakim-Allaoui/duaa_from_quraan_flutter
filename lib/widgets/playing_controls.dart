@@ -42,12 +42,12 @@ class PlayingControls extends StatelessWidget {
             children: <Widget>[
               ButtonTheme(
                 minWidth: 60.0,
-                child: FlatButton(
+                child: TextButton(
                   key: this.btnKey,
-                  padding: EdgeInsets.all(10.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(100.0),
-                  ),
+                  // padding: EdgeInsets.all(10.0),
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: new BorderRadius.circular(100.0),
+                  // ),
                   child:
                       SvgPicture.asset('assets/icons/menu.svg', height: 30.0),
                   onPressed: this.onMenuClick,
@@ -55,8 +55,8 @@ class PlayingControls extends StatelessWidget {
               ),
               ButtonTheme(
                 minWidth: 60.0,
-                child: FlatButton(
-                  padding: EdgeInsets.all(10.0),
+                child: TextButton(
+                  // padding: EdgeInsets.all(10.0),
                   child:
                       SvgPicture.asset('assets/icons/next.svg', height: 30.0),
                   onPressed: this.onNext,
@@ -64,8 +64,8 @@ class PlayingControls extends StatelessWidget {
               ),
               ButtonTheme(
                 minWidth: 60.0,
-                child: FlatButton(
-                  padding: EdgeInsets.all(10.0),
+                child: TextButton(
+                  // padding: EdgeInsets.all(10.0),
                   onPressed: () {},
                   child:
                       SvgPicture.asset('assets/icons/play.svg', height: 30.0),
@@ -73,8 +73,8 @@ class PlayingControls extends StatelessWidget {
               ),
               ButtonTheme(
                 minWidth: 60.0,
-                child: FlatButton(
-                  padding: EdgeInsets.all(10.0),
+                child: TextButton(
+                  // padding: EdgeInsets.all(10.0),
                   child: SvgPicture.asset('assets/icons/previous.svg',
                       height: 30.0),
                   onPressed: this.onPrevious,
@@ -82,11 +82,11 @@ class PlayingControls extends StatelessWidget {
               ),
               ButtonTheme(
                 minWidth: 60.0,
-                child: FlatButton(
-                  padding: EdgeInsets.all(10.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(100.0),
-                  ),
+                child: TextButton(
+                  // padding: EdgeInsets.all(10.0),
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: new BorderRadius.circular(100.0),
+                  // ),
                   child: Opacity(
                       opacity: isLooping ? 1.0 : 0.5,
                       child: SvgPicture.asset('assets/icons/loop.svg',
@@ -106,11 +106,11 @@ class PlayingControls extends StatelessWidget {
             ),
             ButtonTheme(
               minWidth: 60.0,
-              child: FlatButton(
-                padding: EdgeInsets.all(20.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(100.0),
-                ),
+              child: TextButton(
+                // padding: EdgeInsets.all(20.0),
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: new BorderRadius.circular(100.0),
+                // ),
                 child: SvgPicture.asset(
                     isPlaying
                         ? 'assets/icons/pause.svg'
