@@ -8,7 +8,7 @@ Building an audio player in Flutter.
 
 <img src="screenshots/duaa_from_quraan_flutter_screen%20(1).png" height="235em" />
 
-### Requerments :
+### Requirements :
 
 ------------
 
