@@ -26,10 +26,16 @@ jobs:
       # - uses: dart-lang/setup-dart@v1
       # - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: stable
+      - name: Install Flutter
+        run: |
+          wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_$(arch)-$(curl -s https://flutter.dev/docs/development/tools/sdk/releases | grep -oP 'flutter_[^"]+_linux-x64.tar.xz') -O flutter.tar.xz
+          tar xf flutter.tar.xz -C $HOME
+          echo "export PATH=\$PATH:\$HOME/flutter/bin" >> $GITHUB_ENV
+
+      # - name: Set up Flutter
+      #   uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: stable
         
       - name: Install dependencies
         run: flutter pub get
